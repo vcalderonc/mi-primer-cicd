@@ -1,7 +1,7 @@
 // app.js
 // Función principal: suma dos números
 function sumar(a, b) {
-  return a + b;
+  return a * b; // 🐛 BUG: multiplicamos en vez de sumar
 }
 
 // Servidor web simple
