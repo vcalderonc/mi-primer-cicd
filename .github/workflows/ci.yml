@@ -1,0 +1,30 @@
+# ============================================
+# PIPELINE DE CI - Ingeniería de Software II
+# ============================================
+
+name: Pipeline CI - Tests Automatizados de VALENTINA CALDERÒN
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ejecutar-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar tests
+        run: npm test
