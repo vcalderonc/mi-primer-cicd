@@ -17,5 +17,10 @@ module.exports = { sumar };
 
 // Solo iniciar el servidor si ejecutamos este archivo directamente
 if (require.main === module) {
-  server.listen(3000, () => console.log('Servidor corriendo en puerto 3000'));
+  // Render inyecta el puerto via variable de entorno
+  // Si no existe, usamos 3000 para desarrollo local
+  const PORT = process.env.PORT || 3000;
+  server.listen(PORT, () => {
+    console.log(`Servidor corriendo en puerto ${PORT}`);
+  });
 }
