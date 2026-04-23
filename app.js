@@ -9,7 +9,7 @@ const http = require('http');
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hola Mundo desde mi Pipeline CI/CD!\n');
+  res.end('Hola Arquitectos de Software — CI/CD funcionando al 100%!\n');
 });
 
 // Exportamos la función para que el test pueda usarla
