@@ -2,7 +2,7 @@
 # PIPELINE DE CI - Ingeniería de Software II
 # ============================================
 
-name: Pipeline CI - Tests Automatizados de VALENTINA CALDERÒN
+name: Pipeline CI - Tests Automatizados/DevSecOps de VALENTINA CALDERÒN
 
 on:
   push:
@@ -28,3 +28,22 @@ jobs:
 
       - name: Ejecutar tests
         run: npm test
+
+analisis-seguridad:
+    runs-on: ubuntu-latest
+    needs: ejecutar-tests        # ← Espera que los tests pasen primero
+    permissions:
+      security-events: write     # ← Permiso para escribir alertas de seguridad
+      contents: read
+
+    steps:
+      - name: Obtener el código
+        uses: actions/checkout@v4
+
+      - name: Inicializar CodeQL        # ← Prepara el motor de análisis
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript         # ← Le decimos que analice JavaScript
+
+      - name: Ejecutar análisis CodeQL  # ← Escanea todo el código
+        uses: github/codeql-action/analyze@v3
