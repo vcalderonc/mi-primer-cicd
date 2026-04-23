@@ -31,19 +31,19 @@ jobs:
 
   analisis-seguridad:
       runs-on: ubuntu-latest
-      needs: ejecutar-tests        # ← Espera que los tests pasen primero
+      needs: ejecutar-tests       
       permissions:
-        security-events: write     # ← Permiso para escribir alertas de seguridad
+        security-events: write    
         contents: read
 
       steps:
         - name: Obtener el código
           uses: actions/checkout@v4
 
-        - name: Inicializar CodeQL        # ← Prepara el motor de análisis
+        - name: Inicializar CodeQL        
           uses: github/codeql-action/init@v3
           with:
-            languages: javascript         # ← Le decimos que analice JavaScript
+            languages: javascript         
 
-        - name: Ejecutar análisis CodeQL  # ← Escanea todo el código
+        - name: Ejecutar análisis CodeQL  
           uses: github/codeql-action/analyze@v3
