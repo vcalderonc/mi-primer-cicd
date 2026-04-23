@@ -1,0 +1,25 @@
+{
+  "name": "mi-primer-cicd",
+  "version": "1.0.0",
+  "description": "Lab CI/CD - Ingeniería de Software II",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node app.js"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vcalderonc/mi-primer-cicd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vcalderonc/mi-primer-cicd/issues"
+  },
+  "homepage": "https://github.com/vcalderonc/mi-primer-cicd#readme",
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}
